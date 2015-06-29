@@ -1,0 +1,14 @@
+Source: moon-buggy
+Section: games
+Priority: optional
+Maintainer: Christian T. Steigies <cts@debian.org>
+Standards-Version: 3.0.0.0
+Build-Depends: debhelper, tetex-bin, texinfo, libncurses5-dev
+
+Package: moon-buggy
+Architecture: any
+Depends: ${shlibs:Depends}
+Description: Drive some car across the moon
+ Moon-buggy is a simple character graphics game, where you drive some
+ kind of car across the moon's surface.  Unfortunately there are
+ dangerous craters there.  Fortunately your car can jump over them!

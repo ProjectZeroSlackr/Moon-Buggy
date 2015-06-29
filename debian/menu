@@ -1,0 +1,4 @@
+?package(moon-buggy):needs="text" \
+	section="Games/Arcade" \
+	title="moon-buggy" \
+	command="/usr/games/moon-buggy"

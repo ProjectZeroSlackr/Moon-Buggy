@@ -1,0 +1,13 @@
+#! /bin/sh -e
+
+if [ "$1" = configure ]
+then
+  if [ -d /var/games/moon-buggy ]
+  then 
+    /usr/games/moon-buggy -c
+    chown root.games /var/games/moon-buggy/mbscore
+    chmod 664 /var/games/moon-buggy/mbscore
+  fi
+fi
+
+#DEBHELPER#

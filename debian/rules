@@ -1,0 +1,126 @@
+#!/usr/bin/make -f
+#-*- makefile -*-
+# Made with the aid of dh_make, by Craig Small
+# Sample debian/rules that uses debhelper. GNU copyright 1997 by Joey Hess.
+# Some lines taken from debmake, by Christoph Lameter.
+
+# Uncomment this to turn on verbose mode.
+#export DH_VERBOSE=1
+
+installbin = install -g root -o root -m 755
+installdoc = install -g root -o root -m 644
+
+build: build-stamp
+build-stamp:
+	dh_testversion 2.0.40
+	dh_testdir
+
+	./configure --prefix=/usr --sharedstatedir=/var/games --with-setgid=games
+
+	# Add here commands to compile the package.
+	$(MAKE) 
+	$(MAKE) moon-buggy.ps
+
+	touch build-stamp
+
+clean:
+	dh_testdir
+	dh_testroot
+	rm -f build-stamp install-stamp
+
+	# Add here commands to clean up after the build process.
+	-$(MAKE) distclean
+
+#	-rm moon-buggy.info
+
+	dh_clean
+
+install: install-stamp
+install-stamp: build-stamp
+	dh_testdir
+	dh_testroot
+	dh_clean -k
+	dh_installdirs
+
+	# Add here commands to install the package into debian/tmp.
+# we don´t use make install for the moment, since we have to remove most of the stuff 
+#  again by-hand...
+#	$(MAKE) install prefix=`pwd`/debian/tmp/usr
+#	# we do not want maint-buggy for debian, deinstall with dpkg --purge
+#	rm debian/tmp/usr/bin/maint-buggy
+#	rm debian/tmp/usr/man/man6/maint-buggy.6
+#	# FHS wants he binary to live in /usr/games, lets move
+#	mv debian/tmp/usr/bin/moon-buggy debian/tmp/usr/games/
+#	# the binary is called moon-buggy, so should be the info file
+#	sed s/mbuggy/moon-buggy/ debian/tmp/usr/info/mbuggy.info \
+#	 > debian/tmp/usr/info/moon-buggy.info
+#	rm debian/tmp/usr/info/mbuggy.info
+#	cp mbuggy.ps debian/tmp/usr/doc/moon-buggy/moon-buggy.ps
+#	# removing non-standard dirs
+#	rm debian/tmp/usr/com/moon-buggy
+#	rmdir debian/tmp/usr/com/moon-buggy
+
+	# install the binaries
+	$(installbin) moon-buggy debian/tmp/usr/games/moon-buggy
+
+#	# the binary is called moon-buggy, so should be the info file
+#	sed s/mbuggy/moon-buggy/ mbuggy.info > moon-buggy.info
+
+	# install the docs
+	$(installdoc) moon-buggy.info debian/tmp/usr/share/info/moon-buggy.info
+	$(installdoc) moon-buggy.6 debian/tmp/usr/share/man/man6/moon-buggy.6
+	$(installdoc) moon-buggy.ps debian/tmp/usr/share/doc/moon-buggy/moon-buggy.ps
+#	$(installdoc) mbuggy.gif debian/tmp/usr/share/doc/moon-buggy/moon-buggy.gif
+#	$(installdoc) mbuggy.png debian/tmp/usr/share/doc/moon-buggy/moon-buggy.png
+
+	touch install-stamp
+
+# Build architecture-independent files here.
+binary-indep: build install
+# We have nothing to do by default.
+
+# Build architecture-dependent files here.
+binary-arch: build install
+#	dh_testversion
+	dh_testdir
+	dh_testroot
+	dh_installdocs
+	dh_installexamples
+	dh_installmenu
+#	dh_installemacsen
+#	dh_installinit
+	dh_installcron
+	dh_installmanpages
+	dh_installinfo
+	# we do not want maint-buggy for debian, so we don´t need the manpage
+	rm debian/tmp/usr/share/man/man6/maint-buggy.6
+#	dh_undocumented
+	dh_installchangelogs ChangeLog
+##	dh_link
+	dh_strip
+	dh_compress
+	dh_fixperms
+	# You may want to make some executables suid here
+# when moon-buggy is setgid games, we use this:
+	chown root.games debian/tmp/usr/games/moon-buggy
+	chmod g+s debian/tmp/usr/games/moon-buggy
+	chown root.games debian/tmp/var/games/moon-buggy
+	chmod 575 debian/tmp/var/games/moon-buggy
+	dh_suidregister
+#	autoscript "postinst" "postinst-scorefile" "/usr/games/moon-buggy -c"
+#???
+#	echo "/usr/games/moon-buggy -c" >>postinst.debhelper
+#???
+#	dh_makeshlibs
+	dh_installdeb
+#	dh_perl 
+	dh_shlibdeps
+	dh_gencontrol
+	dh_md5sums
+	dh_builddeb
+
+source diff:                                                                  
+	@echo >&2 'source and diff are obsolete - use dpkg-source -b'; false
+
+binary: binary-indep binary-arch
+.PHONY: build clean binary-indep binary-arch binary

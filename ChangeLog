@@ -1,0 +1,2011 @@
+2000-11-01  Jochen Voss  <voss@mathematik.uni-kl.de>
+
+	* ChangeLog: Added 2000-10-28 to 2000-11-01
+
+	* manpage.in: Fixed the modification date.
+
+	* ground.c (print_ground): remove debugging aid.
+
+	* TODO: Two items done.
+
+	* keyboard.c: Ignore case of input characters.
+
+	* highscore.c: Add a reload key for the highscore list.
+
+	* NEWS: Mention the "-m" option and the redraw key.
+
+	* signal.c (cont_handler): call the new function `prepare_screen'.
+
+	* keyboard.c (install_keys): add the redraw key
+
+	* title.c, pager.c, highscore.c, game.c:
+	call the new function `mode_complete'.
+
+	* main.c (prepare_screen, clear_windows): new functions
+	(main): new option "-m"
+
+	* mode.c (mode_complete): new function
+	(mode_keypress): handle `mbk_redraw'
+
+	* moon-buggy.texi, manpage.in: Explain the "-m" option.
+
+	* moon-buggy.h: Add prototypes for the new file "mesg.c".
+	Add a prototype for `prepare_screen' from "main.c".
+	Add a prototype for `mode_complete' from "mode.c".
+	Add `mbk_redraw' to `enum mb_key'.
+
+	* Makefile.am: Add the new file "mesg.c".
+
+	* mesg.c: initial revision
+
+2000-10-29  Jochen Voss  <voss@mathematik.uni-kl.de>
+
+	* highscore.c (show_highscores, print_scores):
+	fix display of scores greater then 99999.
+
+2000-10-28  Jochen Voss  <voss@mathematik.uni-kl.de>
+
+	* signal.c (install_signal): add a consistency check.
+
+	* TODO: Reordered.  One item done.
+
+2000-10-16  Jochen Voss  <voss@mathematik.uni-kl.de>
+
+	* checklist: new item.
+
+	* configure.in: changed the version string to "0.5.51".
+
+	* NEWS: new news
+
+	* ChangeLog: Added 2000-04-26 to 2000-10-16
+
+	* TODO: Mention the segmentation fault for large windows.
+
+	* ANNOUNCE: Changes for version 0.5.1.
+
+	* Makefile.am: minor fix
+
+	* README: Mention the "0.5.1" release.
+
+	* checklist: minor fixes.
+
+	* configure.in: Do not set _XOPEN_SOURCE for "sparc-sun-solaris2.4".
+
+	* keyboard.c (install_keys): Added some uppercase letters.
+
+	* moon-buggy.lsm: updates for version 0.5.1
+
+	* realname.c (get_real_user_name):
+	ignore everything after the first ',' in the
+	pw_gecos field.
+
+2000-09-03  Jochen Voss  <voss@tatonka>
+
+	* moon-buggy.xpm:
+	Changed the image format to fit the Debian menu system's needs.
+
+2000-06-16  Jochen Voss  <voss@tatonka>
+
+	* TODO: updates
+
+	* Makefile.am: Rename old "moon.c" to new "ground.c".
+
+	* moon-buggy.h: Rename old "moon.c" to new "ground.c".
+	Changed the calling syntax for `score_set'.
+	Removed the declarations for the obsolete functions `mode_start',
+	`mode_leave', and `mode_keys'.
+
+	* car.img (START): minor improvements
+
+	* game.c: Reflect the changes from "mode.c".
+	Minor fixes.
+
+	* ground.c: doc fix
+
+	* highscore.c: Reflect the changes from "mode.c".
+	Minor fixes.
+
+	* main.c, pager.c: Reflect the changes from "mode.c".
+
+	* title.c: Reflect the changes from "mode.c".
+	(print_title): bug fix.
+
+	* mode.c: Doc fixes.
+	Cleaned up the code.
+	Removed the obsolete function `mode_keys'.
+
+2000-06-01  Jochen Voss  <voss@tatonka>
+
+	* ground.c, moon.c: moved moon.c to ground.c
+
+	* game.c (pause_enter): bug fix.
+
+	* Makefile.am: rename old "moonman.in" to new "manpage.in".
+
+	* checklist: updates
+
+	* mode.c (mode_keypress): changed the calling syntax.
+
+	* moon-buggy.h: changed the `mode_keypress' calling syntax.
+
+	* queue.c (main_loop): use the new `mode_keypress' syntax.
+
+	* title.c (print_title): minor fix
+
+2000-05-23  Jochen Voss  <voss@tatonka>
+
+	* moon-buggy.h: Removed obsolete declaration.
+
+2000-05-07  Jochen Voss  <voss@tatonka>
+
+	* manpage.in, moonman.in: moved moonman.in to manpage.in
+
+	* test-score-modes: initial revision
+
+	* signal.c, queue.c: Merged the changes from the 0.5.1 release.
+
+	* maintman.in: removed the maint-buggy script
+
+	* highscore.c: Merged the changes from the 0.5.1 release.
+
+	* moonman.in: Fixed the copyright date and revision date.
+
+	* ChangeLog: added 2000-05-01 to 2000-05-07
+
+	* moon-buggy.lsm: fixes for version 0.5.1
+
+	* configure.in: Change the version string to "0.5.1".
+
+	* ANNOUNCE: Announce version 0.5.1
+
+	* maintman.in: Fixed the copyright date.
+
+2000-05-06  Jochen Voss  <voss@tatonka>
+
+	* highscore.c (update_score_file): bug fixes
+
+2000-05-05  Jochen Voss  <voss@tatonka>
+
+	* queue.c (clock_freeze): minor fix
+
+	* signal.c (winch_handler): minor fix
+
+	* highscore.c (update_score_file): bug fix, cleaned up
+
+2000-05-01  Jochen Voss  <voss@tatonka>
+
+	* moonman.in: Fixed the copyright date and revision date.
+
+	* main.c: Fixed the copyright date.
+
+	* configure.in: Changed the version string to "0.5.0.90".
+
+2000-04-26  Jochen Voss  <voss@tatonka>
+
+	* autogen.sh, checklist, .cvsignore, Makefile.am, moon-buggy.texi,
+	moonman.in: removed the maint-buggy script
+
+	* main.c: Fixed the copyright notice.
+
+	* README: Added the warning about unstable versions.
+
+	* configure.in: Changed the version string to "0.5.50".
+
+	* merge.sed: removed the maint-buggy script
+
+	* instcmds:
+	moved /home/voss/src/games/moon-buggy/instcmds to /home/voss/script/
+
+	* maint.in.in, maintman.in: removed the maint-buggy script
+
+2000-04-24  Jochen Voss  <voss@tatonka>
+
+	* ChangeLog: added 2000-04-24
+
+	* moon-buggy.lsm: fixes for version 0.5
+
+	* configure.in: Changed the version string to "0.5".
+
+	* checklist: Added note about copyright dates.
+
+	* TODO: Added new items
+
+	* README: Minor fixes.
+	Removed the "experimental version" warning.
+
+	* moon-buggy.texi: Minor fixes.
+
+	* main.c (allocate_windows): call `initscr' and `hide_cursor'.
+
+	* signal.c (winch_handler): reflect changes in `allocate_windows'.
+
+2000-04-16  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: added 2000-04-13 to 2000-04-16
+
+	* README: Minor fix.
+
+	* TODO: Added two new items.
+
+	* moon-buggy.texi:
+	Explain more keys and add a reference to the download page.
+
+	* moonman.in: Explain more keys.
+
+2000-04-15  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* configure.in: Changed the version string to "0.4.92".
+
+	* highscore.c (fix_gap): new function
+	(resize_highscore, key_handler): bug fixes
+
+	* moon-buggy.h:
+	Changed the declarations for `clock_thaw' and `handle_signals'.
+
+	* signal.c (handle_signal): added a return value.
+
+	* queue.c (my_select): bug fix.
+	(wait_until): calling syntax changed.
+	(clock_freeze): bug fix.
+	(clock_thaw): calling syntax changed.
+
+2000-04-13  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* mode.c (mode_redraw): bug fix
+
+	* game.c (pause_resize): new function
+
+2000-04-12  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: added 2000-03-20 to 2000-04-12
+
+	* configure.in: Change the version string to "0.4.91".
+
+	* keyboard.c (add_key): check for NCURSES_VERSION_MAJOR
+
+	* mode.c (mode_redraw): bug fixes
+
+2000-04-09  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ANNOUNCE: Updated the announcement for version 0.5.
+
+	* keyboard.c (choose_keys): new function
+	(describe_keys): bug fixes and improvements.
+
+	* pager.c: minor fixes
+
+	* NEWS: Explain new features for version 0.5
+
+2000-04-08  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* moon-buggy.h, queue.c:
+	removed the obsolete function `quit_main_loop_h'
+
+	* Makefile.am, configure.in, game.c, highscore.c, keyboard.c, main.c, moon-buggy.h, moon-buggy.texi, pager.c, queue.c, realname.c, signal.c, title.c:
+	fixed the copyright notices
+
+	* TODO: Several items resolved.
+
+	* moon-buggy.texi: Renamed "top-ten" to "highscore".
+	Added moon-buggy's location at sunsite to the list of references.
+
+	* Makefile.am: Removed "moon-buggy.spec".
+
+	* moon-buggy.h:
+	Added declarations for the new functions `print_game_over' and
+	`mode_leave'.
+
+	* game.c (print_game_over): new function
+	cosmetic fixes
+
+	* keyboard.c: bug fixes
+
+	* main.c (prepare_for_exit): cleaned up
+
+	* mode.c (mode_leave): new function
+
+	* realname.c (get_real_user_name): remove leading white space
+
+	* highscore.c: History file removed.
+
+	* highscore.c: Fixed the game over message
+
+	* moon-buggy.spec: removed obsolete file
+
+	* mvwaddnstr.c, wgetnstr.c: removed unused files
+
+2000-04-01  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* moon-buggy.h: Added mbk_scores to enum mb_key.
+
+	* TODO: Updates
+
+	* highscore.c: highscore list is scrollable, now.
+
+	* game.c: display fixes
+
+	* keyboard.c: Add a binding for mbk_scores
+
+	* main.c: Initialize the car
+
+	* mode.c: Clear the moon window before entering a new mode.
+
+	* pager.c: Removed unnecessary code
+
+	* title.c: Add a new key to enter highscore mode.
+
+2000-03-31  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* TODO: updates
+
+	* Makefile.am: Added the new files "mode.c" and "cursor.c".
+
+	* cursor.c, mode.c: initial revision
+
+	* moon-buggy.h: Declarations for the new event driven model.
+	Added declarations for the new files "mode.c" and "cursor.c".
+
+	* buggy.c (jump, car_meteor_hit): calling syntax changed.
+
+	* game.c, highscore.c: Use the new event driven model.
+
+	* keyboard.c (describe_keys): new function
+
+	* main.c: Use the new event driven model.
+	(print_hint): new function
+	Enable LC_CTYPE
+
+	* moon.c, pager.c: Use the new event driven model.
+
+	* queue.c: Implement the new event driven model.
+
+	* realname.c: Check for failure/intterupts.
+	Use show_cursor/hide_cursor.
+
+	* signal.c, title.c: Use the new event driven model.
+
+2000-03-29  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* game.c (game_mode): use `clear_hint_h'.
+
+	* level.c: Use `print_hint_h'.
+
+	* queue.c: Renamed old `print_message_h' and `clear_message_h' to new
+	`print_hint_h' and `clear_hint_h'.
+
+	Doc fixes.
+
+	* configure.in:
+	Check for the "locale.h" header and for the `setlocale' function.
+
+2000-03-20  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* configure.in: Changed the version string to "0.4.53".
+	Minor bug fix for bsd-support.
+
+2000-03-19  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: added 2000-03-14 to 2000-03-19
+
+	* configure.in: Removed some debugging output.
+
+	* TODO: Doc fix
+
+	* moon-buggy.h:
+	Added a declaration for the new function `format_relative_time' from
+	"date.c".
+
+	* highscore.c: New expiration method for higscore entries.
+	(expire_date): new function.
+
+	* date.c (format_relative_time): new function
+
+2000-03-17  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* README, moon-buggy.texi:
+	Explain the new curses options for configure.
+
+	* acconfig.h: BSD fixes
+
+	* acinclude.m4: Added some auto-detection code again.
+
+	* configure.in, highscore.c, persona.c, queue.c, realname.c, vclock.c:
+	BSD fixes
+
+2000-03-14  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* acinclude.m4: initial revision
+
+	* TODO: updates
+
+	* queue.c: Remove the unused loadmeter code.
+
+	* moon-buggy.h: Use CURSES_HEADER.
+
+	* Makefile.am: Use CURSES_INCLUDEDIR and CURSES_LIBS
+
+	* configure.in:
+	Moved all the curses checks to the new file "acinclude.m4".
+
+	* configure.in: Changed the version string to "0.4.52".
+
+2000-01-13  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: Added 2001-01-03 and 2000-01-13
+
+	* checklist: mention README.
+
+	* README: Added a warning about experimental versions.
+
+	* TODO: updates
+
+	* configure.in: Changed the version string to "0.4.51".
+
+	* game.c (game_mode): cosmetic changes
+
+	* highscore.c: Introduced a history file.
+
+2000-01-03  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* date.c: initial revision
+
+	* NEWS: new news
+
+	* TODO: Updates
+
+	* highscore.c: Cosmetic changes.
+	Renamed old "topten" to new "highscore".
+
+	* Makefile.am: remove old "getdate.c" in favour of new "date.c".
+
+	* configure.in: Changed the version string to "0.4.50".
+
+	* moon-buggy.h:
+	Remove declarations for old "getdate.c" in favour of new "date.c".
+
+	* checklist: Fixed the cvs commands.
+
+	* getdate.c: remove old "getdate.c" in favour of new "date.c"
+
+	* highscore.c: Changed the highscore list to 100 entries.
+	Old entries are removed after 30 days, now.
+	Changed the highscore file format.
+
+	* main.c (main): move the `init_rnd' call to a better position.
+
+1999-09-28  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* moon-buggy.lsm: Fixed the moon-buggy-0.4.1.tar.gz package size.
+
+	* checklist: initial revision
+
+	* ANNOUNCE: untabified
+
+	* ChangeLog: Added 1999-09-15 and 1999-09-28
+
+	* moon-buggy.lsm: Changes for the 0.4.1 release
+
+	* ANNOUNCE: Updates for the new 0.4.1 release.
+
+	* configure.in: Changed the version string to "0.4.1".
+
+	* TODO: new item
+
+	* moon-buggy.texi: Identify the edition on the titlepage.
+	Minor fixes.
+
+1999-09-15  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: Added 1999-09-14
+
+1999-09-14  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: Added 1999-09-14
+
+	* configure.in: Changed the version string to "0.4.0.94".
+	Use AC_EGREP_HEADER instead of AC_HEADER_EGREP.
+
+	* game.c (game_mode): make the use of A_BLINK conditional.
+
+	* moon-buggy.texi: Fixed an overfull hbox.
+
+1999-09-07  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: Added 1999-09-07
+
+	* configure.in: Changed the version string to "0.4.0.93".
+
+	* TODO: The signals-item is done.
+
+	* signal.c (install_signal): new function
+	(generic_handler, cont_handler): bug fixes
+
+1999-09-02  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* download.html: updated the page to version 0.4.0.92
+
+	* ChangeLog: Added 1999-08-31 and 1999-09-02.
+
+	* configure.in: Changed the version string to "0.4.0.92".
+
+	* Makefile.am (dist-hook):
+	corrected the handling of the "debian/" subdirectory.
+
+	* main.c (print_message): bug fix
+
+	* highscore.c: Bug fixes: handle corrupted score files
+
+1999-08-31  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* download.html: initial revision
+
+1999-08-30  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: Added 1999-07-23 and 1999-08-30.
+
+	* Makefile.am (dist-hook): minor fix
+
+	* TODO: Removed one entry.
+
+	* moon-buggy.texi: Explain the new "--show-scores" option.
+	Rewrote the chapter on "shared score files".
+	Refer to the file "SECURITY" from the bsd-games package.
+
+	* Makefile.am (install-data-hook): bug fixes for setgid usage
+
+	* keyboard.c: Removed the unused function `remove_key'.
+
+	* moon-buggy.h:
+	Added declarations for the new functions `create_highscores' and
+	`show_highscores' from "highscore.c".
+
+	* highscore.c (create_highscores, show_highscores): new functions.
+	(do_open, print_scores): bug fixes.
+
+	* moonman.in: Explain the new "--show-scores" option.
+
+	* main.c: Added new options "--create-scores" and "--show-scores".
+
+	* persona.c (is_setgid): bug fix.
+
+	* configure.in: Changed the version string to "0.4.0.91".
+
+	* Makefile.am: Include the "debian/" subdirectory into distribution.
+
+1999-07-23  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* moonman.in: Fixed a typo.
+
+1999-07-22  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: Added 1999-07-02 to 1999-07-22
+
+	* NEWS: Added news for version "0.4.1".
+
+1999-07-21  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* Makefile.am (install-data-hook): bug fix
+
+	* Makefile.am (install-exec-hook, install-data-hook):
+	Fixed the access premissions
+	for setgid usage.
+
+	* README: Explain setgid usage instead of setuid.
+
+	* TODO: One item done (setgid usage).
+
+	* moon-buggy.h:
+	Added a declaration for the new function `is_setgid' from "persona.c".
+
+	* moon-buggy.spec: Use "--with-setgid" instead of "--with-setuid".
+
+	* moon-buggy.texi: Rewrote the chapter "Shared Score Files".
+	Explain setgid usage instead of setuid.
+
+	* persona.c (is_setgid): new function
+
+	* highscore.c (do_open):
+	fix the score file's access mode for setgid usage.
+
+	* moon-buggy.xpm: initial revision
+
+	* .cvsignore: Changed all occurrences fo "mbuggy" to "moon-buggy".
+
+	* Makefile.am: Changed all occurrences fo "mbuggy" to "moon-buggy".
+	Removed the "--with-setuid" option in favor of a "--with-setgid"
+	option.
+
+	* TODO: Added a new entry.
+
+	* configure.in: Renamed the package to "moon-buggy" again.
+	Changed the version string to "0.4.0.90".
+	Removed the "--with-setuid" option in favor of a "--with-setgid"
+	option.
+
+	* maint.in.in, moon-buggy.lsm, moon-buggy.spec:
+	Changed all occurrences fo "mbuggy" to "moon-buggy".
+
+	* moon-buggy.h: Fixed the header file protection.
+
+	* moon-buggy.texi: Renamed old "mbuggy.info" to new "moon-buggy.info".
+
+	* getdate.c, random.c: Include "moon-buggy.h".
+
+	* buggy.c, error.c, game.c, highscore.c, hpath.c, keyboard.c,
+	laser.c, level.c, main.c, meteor.c, moon.c, mvwaddnstr.c, pager.c,
+	persona.c, queue.c, realname.c, signal.c, title.c, vclock.c,
+	wgetnstr.c, xmalloc.c, xstrdup.c: Renamed old "mbuggy.h" to new
+	"moon-buggy.h".
+
+	* mbuggy.spec, moon-buggy.spec: moved mbuggy.spec to moon-buggy.spec
+
+	* moon-buggy.lsm, mbuggy.lsm: moved mbuggy.lsm to moon-buggy.lsm
+
+	* moon-buggy.png, mbuggy.png: moved mbuggy.png to moon-buggy.png
+
+	* moon-buggy.h, mbuggy.h: moved mbuggy.h to moon-buggy.h
+
+	* moon-buggy.texi, mbuggy.texi: moved mbuggy.texi to moon-buggy.texi
+
+1999-07-17  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* queue.c (drain_input): new function
+	(main_loop): eat up all input in absence of a key handler
+
+	* game.c (game_mode): sleep for half of a second after each crash
+
+	* configure.in: add AC_HEADER_STDC
+
+1999-07-08  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* mbuggy.spec, Makefile.am: Removed "mbuggy.gif" from the distribution.
+
+	* mbuggy.gif: removed gif because of the patent problems
+
+1999-07-02  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* mbuggy.lsm:
+	Fixed the date string format as requested by the son of the lsm robot.
+	Fixed the lsm file's length
+
+	* configure.in: Changed the version string to "0.4.1".
+
+1999-06-27  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: Added 1999-06-27
+
+	* mbuggy.lsm: Added another keyword.
+
+	* ANNOUNCE: Minor fixes.
+
+1999-06-25  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: Added remaining items.
+
+	* mbuggy.h: Fixed the header protection comment.
+
+	* autogen.sh: Added a warning message about uninst.pre.in.
+
+	* main.c, maint.in.in, maintman.in, merge.sed, moonman.in,
+	text2c.sed, title.c, AUTHORS, Makefile.am, img.sed, instcmds: do
+	not use the german letter esszet in the files
+
+	* mbuggy.lsm: initital revision
+
+	* configure.in: Changed the version string to "0.4".
+	Changed the package name to "mbuggy".
+
+	* Makefile.am (install-exec-hook): minor fix.
+
+	* ChangeLog: Added 1999-06-13 to 1999-06-25
+
+	* mbuggy.spec: Updated to moon-buggy version "0.4".
+
+	* TODO: Cleaned up the file.
+
+	* Makefile.am: Include the new file "ANNOUNCE" in the distribution.
+	Renamed old "moon-buggy.gif" and "moon-buggy.png" to new "mbuggy.gif"
+	and "mbuggy.png"
+
+	* ANNOUNCE: initital revision
+
+	* mbuggy.png, moon-buggy.png: moved moon-buggy.png to mbuggy.png
+
+	* mbuggy.gif, moon-buggy.gif: moved moon-buggy.gif to mbuggy.gif
+
+	* NEWS: Updated the news for version 0.4.
+
+	* Makefile.am: Include "mbuggy.lsm" in the distribution.
+	(install-data-hook): minor fixes
+
+1999-06-17  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* highscore.c (load_table): prepare to handle corrupted score files.
+
+	* getdate.c, keyboard.c, laser.c, level.c: doc fix
+
+	* main.c: Fixed the copyright notice.
+
+	* mbuggy.h:
+	Added a declaration for the new functio `xsleep' from "queue.c".
+
+	* meteor.c, mvwaddnstr.c: doc fix
+
+1999-06-13  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* queue.c (xsleep): new function
+
+	* random.c, signal.c: doc fix
+
+	* title.c (print_title): fixed the copyright date.
+
+	* vclock.c, xstrdup.c: doc fix
+
+	* Makefile.am: Do not use GNU make's $< any more.
+
+	* README: Reflect the changes in the manual.
+
+	* TODO: Removed many items.
+
+	* configure.in:
+	Renamed old option "--with-suid" to new "--with-setuid".  Check for
+	missing user name.
+
+	* darray.h: White space fixes.
+
+	* keyboard.c: Fixed one error message.
+
+	* mbuggy.texi: Improved the "shared score files" chapter.
+	Renamed old option "--with-suid" to new "--with-setuid".
+
+	* pager.c (lines_used, current_line): changed the type to `int'.
+
+	* persona.c: Fixed some error messages.
+
+	* queue.c: Include <stdarg.h> on __hp9000s800.
+
+	* realname.c:
+	Define _XOPEN_SOURCE_EXTENDED and on __hp9000s800 include <stdarg.h>.
+
+	* vclock.c: Include <stdarg.h> on __hp9000s800.
+
+	* wgetnstr.c (wgetnstr): fixed an error message
+
+1999-06-06  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* configure.in: Changed the version string to "0.3.95".
+
+	* Makefile.am (uninst.pre.in): fixed the dependencies.
+
+	* TODO: Removed just another item.
+
+	* ChangeLog: Added 1999-06-05 to 1999-06-06
+
+	* TODO: Another item done.
+
+	* mbuggy.h: Removed the obsolete KEY_* stuff.
+	Fixed the prototype for `uniform_rnd'.
+
+	* highscore.c (struct score_entry): bug fix.
+	(generate_date): every dwarf plays only once.
+
+	* keyboard.c: Removed some unnecessary code.
+
+	* random.c (uniform_rnd): changed the calling syntax
+
+	* Makefile.am: Use "keyboard.c" instead of "xgetch.c".
+
+	* TODO: Some items done.
+
+	* game.c (life_key_handler, game_key_handler): use `read_key'.
+
+	* highscore.c (highscore_mode):
+	use `main_loop' instead of looping manually.
+	(key_handler): new function.
+
+	* main.c (main): call `install_keys'.
+
+	* keyboard.c: initial revision
+
+	* mbuggy.h: Added declarations for the new file "keyboard.c".
+
+	* mbuggy.texi: Added a new "shared score files" chapter.
+
+	* pager.c (key_handler): use `read_key'.
+
+	* queue.c (clear_queue): do not use `xgetch' any more.
+
+	* title.c (key_handler): use `read_key'.
+
+	* wgetnstr.c: Do not use `xgetch' any more.
+
+	* xgetch.c: xgetch.c is no longer needed
+
+1999-06-05  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* autogen.sh: bug fix
+
+	* Makefile.am (uninst.pre.in):
+	call "instcmds" with the build directory being
+	current.
+	(install-data-hook): replaced the "-e" flags for "test" by "-f".
+
+	* configure.in: Changed the version string to "0.3.94".
+
+	* mbuggy.h: Added prototypes for the new functions `resize_meteors',
+	`resize_laser', and `fix_game_time'.
+	Removed the prototype for the obsolete function `block_winch'.
+
+	* game.c (resize_game): call the new functions `resize_meteors' and
+	`resize_laser'.
+
+	* instcmds: bug fix: increased the version number.
+
+	* laser.c (extinguish_laser): bug fix
+	(resize_laser): new function
+
+	* main.c (main): do not call `block_all'.
+
+	* meteor.c (remove_meteors): bug fix
+	(resize_meteors): new function
+
+	* moon.c (resize_ground): do not block any signals anymore.
+
+	* queue.c (fix_game_time): new function
+
+	* signal.c: Removed the obsolete function `block_winch'.
+	Use `fix_game_time'.
+	(winch_handler): call `clearok' and add some extra delay.
+
+	* xgetch.c (xgetch): undo the last changes.
+
+1999-06-03  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: Added 1999-05-27 to 1999-06-03
+
+	* .cvsignore: Added "uninst.pre.in", removed "uninst.post".
+
+	* game.c (quit_game): bug fix.
+
+	* highscore.c (highscore_mode): don't beep on resize.
+
+	* moon.c (resize_ground): adjust `car_x'.
+
+	* queue.c (my_select): renamed old `retval' to `res'.
+
+	* signal.c (do_resize): new function
+	(cont_handler): handle resizes while we are suspended
+
+	* xgetch.c (xgetch): handle interrupts.
+
+	* TODO: Removed two items.
+
+	* game.c (quit_game): new function
+
+	* main.c (prepare_for_exit): minor fix.
+
+	* mbuggy.h:
+	Added a declaration for the new function `quit_game' from "game.c".
+
+	* queue.c (my_select): better interrupt handling
+
+	* signal.c: Use "daraay.h" to avoid the use of `NSIG'.
+	(handle_signals): bug fix.
+
+1999-06-02  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* TODO: One item reoved, three added.
+
+	* Makefile.am: Remvoed the uninst.post stuff
+	Create "uninst.pre.in" instead of "uninst.pre".
+
+	* maint.in.in: Moved the pre-uninstall-hack into Makefile.am.
+
+	* autogen.sh: touch uninst.pre.in
+
+	* configure.in: Change the version string to "0.3.93".
+	Create "uninst.pre".
+
+	* highscore.c: Include <sys/stat.h> again.
+
+	* instcmds: Changed the calling syntax.
+	Pass all remaining arguments to "make".
+	Small fixes.
+
+	* merge.sed: Removed the post-uninstall stuff.
+
+1999-05-31  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* NEWS: Added score files and levels.
+
+1999-05-30  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* TODO: Added some entries.
+
+	* getdate.c: initial revision
+
+	* Makefile.am: Mention the new file "getdate.c".
+
+	* autogen.sh: "darray.h" is a local file, again.
+
+	* configure.in: Removed AC_HEADER_STDC.
+	Do not check for `memmove'.
+
+	* mbuggy.h: Changed the type of variable `stakes' to `int'.
+	Fixed the prototype for `highscore_mode'.
+	Added declaration for "getdate.c".
+	Fixed the declarations for "persona.c".
+
+	* error.c: Doc fix.
+
+	* game.c: Changed the type of variables `score' and `stakes' to `int'.
+
+	* highscore.c: Mostly rewritten.
+	(highscore_mode): Added a second argument `level'.
+
+	* main.c, moon.c: Do not use `STDC_HEADERS'.
+
+	* persona.c: Renamed old variable `persona' to new `current'.
+	Write "uid" instead of "user_id" and "gid" instead of "group id".
+	Replaced old functions `set_game_persona' and `set_user_person' by new
+	function `set_persona'.
+
+	* xmalloc.c: Do not use `STDC_HEADERS'.
+
+	* darray.h: switched to a local version again
+
+1999-05-27  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* level.c (level0): made this level somewaht easier.
+
+	* configure.in: Changed the version string to "0.3.92".
+
+	* level.c (score_plateau): removed forgotten debugging aid
+
+1999-05-26  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: Added 1999-05-23 to 1999-05-26
+
+	* level.c: Give a bonus for small plateaus.
+	(score_plateau): new function
+
+	* meteor.c: Shooting on a meteor gives 10 points + laser cost.
+	Jumping over it gives 20 points.
+	(score_meteor): new function
+
+	* laser.c: The laser costs one point per beam.
+
+	* TODO: Mention some problems, which should be fixed.
+
+	* main.c (prepare_for_exit): bug fix.
+
+	* mbuggy.h: Added more keys to the list of possibly missing keys.
+
+	* persona.c (set_user_persona, set_game_persona):
+	Fixed serious bug in setreuid
+	usage.
+	Check systems calls for failure.
+	Improved the error message texts.
+
+	* realname.c (get_real_user_name): fixed a get-login-name bug.
+
+	* signal.c: Removed the declaration of _POSIX_SOURCE.
+
+1999-05-25  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* configure.in: Changed the version string to "0.3.91".
+	AC_DEFINE(_XOPEN_SOURCE, 1)
+
+	* acconfig.h: Added _XOPEN_SOURCE
+
+	* highscore.c: Removed the _POSIX_SOURCE define.
+	For hp9000s800 systems include <stdarg.h>.
+
+	* main.c: Removed the _POSIX_SOURCE define.
+
+	* mvwaddnstr.c: Include "mbuggy.h" instead of old "moon.h".
+
+	* persona.c: Removed the _POSIX_SOURCE define.
+	For hp9000s800 systems include <stdarg.h>.
+
+	* queue.c: Removed the _POSIX_SOURCE define.
+	Define _XOPEN_SOURCE_EXTENDED.
+
+	* realname.c: Removed the _POSIX_SOURCE define.
+
+	* vclock.c: Define _XOPEN_SOURCE_EXTENDED.
+
+	* wgetnstr.c: Include "mbuggy.h" instead of old "moon.h".
+
+	* xgetch.c: Removed the _POSIX_SOURCE define.
+
+1999-05-24  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* TODO: Some items removed.
+
+	* mbuggy.spec: Minor fixes.
+
+	* mbuggy.texi, moonman.in: Minor fixes.
+	Describe the key bindings.
+
+	* Makefile.am (moon-buggy.6): added a substitution.
+
+	* mbuggy.h:
+	Added a declaration for the new variable `stakes' from "game.c".
+	Removed the declaration of the old variable `bonus' from "game.c".
+	Added a declaration for the new variable `bonus from "moon.c".
+	Renamed old "control.c" to new "level.c".
+	Removed the prototype for the obsolete function `requeue_meteors'.
+	Added a prototype for the new function `print_message_h' from "queue.c".
+
+	* level.c: Bug fixes.
+	Use the new scoring system.
+	Added level messages.
+	New level 6.
+	Improved the final level.
+	(level_tick): changed the calling syntax.
+	(current_level): new function.
+
+	* buggy.c: Use the new scoring system.
+
+	* game.c: doc fixes
+	(stakes): new variable
+	Removed old variable `bonus'.
+	Removed obsolete function `score_handler'.
+	(game_mode): when the car crashes, restart the current level from the
+	very beginning.
+
+	* main.c (remove_event): Do not use `clear_message_h' any more.
+
+	* meteor.c: Remove the obsolete function `requeue_meteors'.
+
+	* moon.c: New score system.
+	(bonus): new global variable.
+	(print_level): new function
+
+	* queue.c (print_message_h): new function
+
+	* random.c (uniform_rnd): check for invalid arguments.
+
+1999-05-23  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: Added "1999-05-11" until "1999-05-22".
+
+	* TODO: Removed three (meteor related) items.
+
+	* Makefile.am: Renamed old "control.c" to new "level.c".
+
+	* mbuggy.h: Added prototypes for the new functions `car_meteor_hit',
+	'meteor_car_hit' and `requeue_meteors'.
+	Changed the declarations for "meteor.c".
+
+	* level.c: Added a new level (meteors).
+
+	* buggy.c (sz_ram, sz_sit): new scenarios.
+	(jump_handler): check for landings on a meteor.
+	(car_meteor_hit): new function.
+
+	* car.img: New images of the car being destroyed by a meteor.
+
+	* game.c: Do not remove all meteors on a crash.
+
+	* laser.c (beam_handler): bug fixes.
+
+	* meteor.c (meteor_handler): check whether we hit the car.
+	(requeue_meteors): new function.
+	Renamed old `meteor_hit' to new `meteor_laser_hit'.
+	(meteor_car_hit): new function.
+
+	* moon.c (scroll_handler):
+	After a crash run the animation one tick longer.
+
+	* level.c, control.c: moved control.c to level.c
+
+	* TODO: Cleaned up.  Two items removed.
+
+	* mbuggy.h: Removed the obsolete macro `MB_DEBUG'.
+	Changed the declarations for "control.c".
+
+	* meteor.c (place_meteor): fixed the initial horizontal position.
+
+	* moon.c: Renamed old `control_tick' to new `level_tick'.
+
+	* control.c: Added new levels.
+	Replaced old `control_init' by new `level_start'.
+	Renamed old `control_tick' to new `level_tick'.
+	Overall improvements.
+
+	* buggy.c: Removed the `MB_DEBUG' stuff.
+
+	* game.c (spend_life):
+	calling syntax changed.  Do not call the obsolete
+	function `control_init' any more.
+	(game_mode): call `level_start'.
+
+	* queue.c (main_loop): disable the load display.
+
+	* main.c (print_message):
+	use `clear_message_h' to remove the message later-on.
+	(main): moved the "good luck" message into the level 0 part of
+	"control.c".
+
+1999-05-22  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* TODO: Replaced one item by another.
+
+	* mbuggy.h: Fixed the prototype for `control_tick'.
+
+	* moon.c (scroll_handler):
+	Use the new calling syntax for `control_tick'.
+
+	* control.c: Major reorganisation: implement different levels.
+
+	* Makefile.am: Mention the new file "control.c".
+
+	* mbuggy.h: Added declarations for the new file "control.c".
+
+	* TODO: Drei neue Einträge.
+
+	* buggy.c (sz_jump): slightly changed the jump length
+
+	* game.c (spend_life): added a call to `control_init'.
+
+	* moon.c (scroll_handler): Use the new function `control_tick' from
+	"control.c".
+
+	* control.c: initial revision
+
+	* configure.in: Fixed the `AC_INIT' statement.
+
+	* TODO: Removed one item.
+
+	* mbuggy.h: Changed the declarations for "game.c".
+	Added a declaration for the new function `shift_buggy' from "buggy.c".
+	Changed the prototype of `highscore_mode'.
+
+	* car.img (BROKEN): new image
+
+	* buggy.c (sz_crash): new screnario
+	(initialise_buggy): clear the old buggy from the screen.  Set `car_x'
+	  and `car_y'
+	(print_buggy): handle `car_BROKEN' in a special way
+	(jump_handler): use `crash_detected' instead of `quit_main_loop'
+	(crash_check): use `sz_crash'
+	(shift_buggy): new function
+
+	* game.c (crash_detected): new variable
+	Changed the variable `score' from global scope to file local scope.
+	Renamed old `score_bonus' into new `adjust_score'.
+	(print_score): merged into `adjust_score'.
+	(game_mode): do not set `car_x' any more.
+
+	* highscore.c: Do not access the global variable `score' any more.
+	(highscore_mode): changed the calling syntax.
+
+	* moon.c (scroll_handler):
+	delay the game's end after a crash by two ticks.
+
+	* signal.c: Rename old `score_bonus' to new `adjust_score'.
+
+	* title.c (setup_screen): do not set `car_x' any more.
+
+	* realname.c, signal.c, title.c, vclock.c, xgetch.c, xmalloc.c,
+	xstrdup.c, Makefile.am, buggy.c, error.c, game.c, highscore.c,
+	hpath.c, laser.c, main.c, meteor.c, moon.c, pager.c, persona.c,
+	queue.c: renamed old "moon.h" to new "mbuggy.h"
+
+	* mbuggy.h: Fixed the header comment.
+
+	* TODO: Spelling fix.
+
+	* mbuggy.h, moon.h: moved moon.h to mbuggy.h
+
+	* TODO: Removed three items, added one.
+
+	* moon.h: Changed the declaration for `print_buggy'.
+
+	* buggy.c (struct_scene): complete change
+	Removed the obsolete variable `cstate'.
+	Joined old `animate_buggy' into `print_buggy'.
+	(print_buggy): use the table from "buggy.h".  Do not check for crashs.
+	(jump, can_jump, crash_check): fixes.
+
+	* img.sed, car.img: Changed the images to height 2.
+
+	* moon.c (scroll_handler): removed unnecessary calls to `print_buggy'.
+
+	* queue.c: Made the loadmeter more responsive.
+
+1999-05-19  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* TODO: Ein Punkt entfert.
+	Dafür zwei neue.
+
+	* Makefile.am: Mention the new file "random.c".
+
+	* moon.h: Added declarations for the new file "random.c".
+	Added a declaration for `start_scrolling' from "moon.c".
+
+	* highscore.c: Use `uniform_rnd' instead of old `d_rnd'.
+
+	* main.c (main): call `init_rnd'.
+
+	* game.c: Moved `scroll_handler' from "game.c" into "moon.c".
+
+	* moon.c: Moved `d_rnd' from "moon.c" into `uniform_rnd' in "random.c".
+	Moved `scroll_handler' from "game.c" into "moon.c".
+	Incorporated the old function `scroll_ground' into `scroll_handler'.
+	(start_scrolling): new function.
+
+	* random.c: initial revision
+
+1999-05-16  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* TODO: CPU load done.
+	New entry.
+
+	* configure.in: Check for function `exp' in -lm.
+
+	* queue.c: Measure the system's CPU load.
+
+1999-05-15  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* TODO: Viele neue Einträge.
+
+	* Makefile.am: Mention the new file "meteor.c".
+
+	* moon.h: Define `BASELINE'.
+	Removed the obsolete declaration of `ground3'.
+	Added a declaration for the new function `laser_hit' from "laser.c".
+	Added declarations for the new file "meteor.c".
+	Added a declaration for the new function `remove_client_data' from "queue.c".
+
+	* game.c (scroll_handler): Randomly place some meteors.
+	(game_mode): remove them, if the player did not.
+
+	* laser.c: Check for meteors, which are hit by the laser.
+	(laser_hit): new function
+
+	* meteor.c: initial revision
+
+1999-05-11  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* moon.c: Removed any reference to `ground3'.
+
+	* queue.c (remove_client_data): new function
+
+1999-05-08  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: Added 1999-04-25 to 1999-05-08
+
+	* TODO: Laser bug is fixed.
+
+	* autogen.sh: Use "ln -sf" instead of "ln -s".
+
+	* Makefile.am (moon_buggy_SOURCES): add "darray.h".
+
+	* autogen.sh: initial revision
+
+	* TODO: New entries.
+
+	* darray.h: removed link out of the cvs controlled area
+
+	* game.c (spend_life): add a call to `extinguish_laser'.
+
+	* moon.h: Declare `extinguish_laser' from "laser.c".
+
+	* laser.c:
+	Changed the meaning of `b->right'.  It is now right of the beam's
+	rightmost character.
+	Use the facilities from "darray.h".
+	(beam_table): new static variable
+	(extinguish_laser): new function.
+
+	* persona.c: Define _XOPEN_SOURCE and _XOPEN_SOURCE_EXTENDED.
+
+	* signal.c: Define _POSIX_SOURCE and _SVID_SOURCE.
+
+1999-05-02  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* TODO: New entry
+
+1999-04-25  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* .cvsignore: Mention the new file "buggy.h".
+
+	* moon.h: Declare new variables `car_x' and `car_y' from "buggy.c".
+	Removed declaration for obsolete variable `score_base'.
+	Removed obsolete definition of `speed'.
+
+	* buggy.c: Define new variables `car_x' and `car_y'.
+	Moved variable `car_base' from "buggy.c" to "main.c".
+	Removed obsolete variable `score_base'.
+	(print_buggy): set `car_y'.
+
+	* game.c (game_mode): initialise `car_x'.
+
+	* laser.c (struct beam): added new `y' field.
+	(beam_handler): clouds move with the ground, now.
+
+	* main.c: Define the new global variable `car_base'.
+
+	* moon.c (resize_ground):
+	do not initialise the obsolete variable `score_base'.
+
+	* title.c (setup_screen): initialise the new variable `car_x'.
+
+1999-04-24  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: Added 1999-03-08 to 199-04-24
+
+	* NEWS: Mention the laser device.
+
+	* moon.h: Moved the definition of `speed' from "buggy.c" to "moon.h".
+	Add a declaration for `fire_laser' from "laser.c".
+
+	* moon.c: Do not output `ground3' for the moment.
+
+	* game.c: Key `a' fires the laser, now.
+
+	* buggy.c: Moved the definition of `speed' from "buggy.c" to "moon.h".
+
+	* Makefile.am: Mention the new file "laser.c".
+	Removed "hpath.c" from `EXTRA_DIST'.
+
+	* laser.c: initial revision
+
+1999-04-23  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* Makefile.am:
+	Mention the new files "car.img", "img.sed", and "buggy.h".
+
+	* TODO: updates
+
+	* car.img: initial revision
+
+	* main.c: Use `werase' instead of `wclear'.
+
+	* img.sed: initial revision
+
+	* buggy.c: Use the new queue mechnism.
+
+	* game.c, pager.c, title.c: Use `werase' instead of `wclear'.
+	Use the new queue mechnism.
+
+	* moon.h: Fixed the prototypes for "queue.c".
+
+	* signal.c (cont_handler): call `cbreak' and `noecho'.
+
+	* queue.c: Partly rewritten.
+	Now, we store a callback function instead of an event type.
+
+1999-04-21  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* buggy.c, game.c, moon.c, moon.h:
+	Added some preliminary support for rocks lying around.
+
+1999-04-07  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* game.c: Print a message on game abortion.
+
+	* queue.c: Major clean-ups.
+
+1999-03-12  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* persona.c: doc fix
+
+1999-03-10  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* persona.c: Bug fix.
+
+1999-03-08  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: added 1999-02-24 to 1999-03-08
+
+	* TODO: Neuer Punkt "messen" ersetzt alten Punkt "lag.c".
+
+	* moon.h: Added a new type `game_time'.
+	Fixed the declarations for "queue.c".
+	Removed the declarations from the obsolete file "lag.c".
+
+	* game.c: Use the new `game_time' type.
+	Removed `load_meter'.
+
+	* queue.c: Use the new `game_time' type.
+	Remove `sleep_meter'.
+	(clock_adjust_delay): do not ignore errors.
+	(get_event): do not use `lagmeter' any more.
+
+	* Makefile.am: Remove the obsolete file "lag.c".
+
+	* lag.c: removed obsolete file
+
+	* main.c: Do not allocate `queuelag' any more.
+
+	* mbuggy.texi: minor fix
+
+	* moon.c, pager.c: minor simplifications
+
+	* lag.c, persona.c, title.c: white space fixes
+
+1999-03-03  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* mbuggy.texi, maintman.in:
+	Warn even more of maint-buggy's `--uninstall' option.
+
+1999-03-02  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* TODO: Removed one item, added several.
+
+	* configure.in: Changed the version string to "0.3.90".
+
+	* Makefile.am: Add the new file "signal.c".
+
+	* signal.c: initial revision
+
+	* buggy.c, game.c: Changed the spelling of "initialise".
+
+	* main.c: Moved the signal handling code to the new file "signal.c".
+
+	* moon.h: Changed the spelling of "initialise".
+	Added declarations for the new file "signal.c".
+
+	* persona.c: Changed the spelling of "initialise".
+
+	* queue.c (my_select): new function.
+
+	* title.c: Changed the spelling of "initialise".
+
+1999-02-24  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* configure.in: Changed the version string to "0.3.3".
+
+1999-01-31  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: added 1999-01-31
+
+	* basename.c: removed obsolete file
+
+	* NEWS: new news
+
+1999-01-30  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: added 1999-01-21 to 1999-01-30
+
+	* Makefile.am: Do not define AWK for class to "instcmds".
+
+	* configure.in: Changed the version string to "0.3.2".
+	Remove AC_PROG_AWK and the check for `basename'.
+	Check for the definition of `fd_set'.
+
+	* acconfig.h: Add HAVE_SYS_SELECT_H and NO_FD_SET.
+
+	* instcmds: Changed the version to "0.2".
+	Use sed instead of awk.
+
+	* moon.h: Added a declaration for `xstrnlen' from "xstrdup.c".
+	Removed the `basename' declaration.
+
+	* main.c: Fixed the _POSIX_SOURCE definition
+	(main): avoid `basename'
+
+	* realname.c: Fixed the _POSIX_SOURCE definition
+	(get_real_user_name): take care of people with very long names
+
+	* highscore.c: fix the _XOPEN_SOURCE definitions
+
+	* game.c (game_mode): take care of people, which hold SPC too long.
+
+	* pager.c: Renamed old `lines' to new `mb_lines'.
+
+	* queue.c: Fixed the _POSIX_SOURCE define
+	Try to include <sys/select.h>
+
+	* xgetch.c: Fixed the _POSIX_SOURCE define
+
+	* xstrdup.c (xstrnlen): changed to global scope
+
+1999-01-21  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* Makefile.am (DISTCLEANFILES): final bug fix: add maint-buggy
+
+1999-01-18  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: added 1999-01-07 to 1999-01-18
+
+	* NEWS: new news
+
+	* mbuggy.spec: Changed the version number
+	minor fixes
+
+	* README: minor fix
+
+	* TODO: Differentiate between bug fixes and enhancements.
+
+	* configure.in: Use `AC_REVISION'.
+
+	* mbuggy.texi, xstrdup.c: minor fix
+
+1999-01-09  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* TODO: Two new entries
+	reordered
+
+	* configure.in: Check for the mythical `fclean' function.
+
+	* pager.c (pager_mode): minor fix
+
+	* title.c (setup_screen): minor bug fix
+
+	* highscore.c:
+	Write out newly created score files, even if the player is not in.
+	Use `fflush' before `ftruncate'.
+
+	* Makefile.am (uninstall-local): remove the score file
+
+1999-01-07  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* highscore.c (generate_table):
+	generate more challenging score values.
+
+	* configure.in: Changed the version string to "0.3.1".
+
+1999-01-02  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* mbuggy.texi: Last bug fix!
+
+	* ChangeLog: added 1998-12-28 to 1999-01-02
+
+	* configure.in: changed the version string to "0.3"
+
+	* Makefile.am:
+	Renamed old "moon-buggy-0.2-1.spec" to new "mbuggy.spec".
+	(install-data-hook): changed the install category to `POST_INSTALL'.
+
+	* mbuggy.spec, moon-buggy-0.2-1.spec:
+	moved moon-buggy-0.2-1.spec to mbuggy.spec
+
+	* maint.in.in: uninstall: bug fix
+
+	* xmalloc.c: Fixed the copyright notice.
+
+	* Makefile.am: Add the new file "xgetch.c".
+
+	* NEWS: Added news for version 0.3
+
+	* README: Great improvements
+
+	* TODO: Finished all tasks for the 0.3 release
+
+	* basename.c: copyright fix
+
+	* buggy.c: copyright fix
+	(print_buggy): changed the calling syntax
+	(crash_check): bug fix
+
+	* error.c: copyright fix
+
+	* game.c: copyright fix
+	Use `MB_DEBUG'.
+	Use `xgetch' instead of `wgetch'.
+	(spend_life): Check for crashes during the landing.
+	(game_mode): wait .3 seconds after each life.
+
+	* highscore.c: copyright fix
+	(highscore_mode): Use `xgetch' instead of `wgetch'.
+
+	* hpath.c: copyright fix
+
+	* main.c: copyright fix
+	doc fixes
+
+	* maint.in.in, maintman.in: added a copyright notice
+
+	* mbuggy.texi: Spelling fixes and improved typography
+	Copyright fix
+	Add an image to the title page
+	@setchapternewpage off
+	Explain "maint-buggy"
+	Minor improvements
+	Greatly improved installation instructions
+
+	* merge.sed: added a copyright notice
+
+	* moon.c: copyright fix
+
+	* moon.h: Define `MB_DEBUG'.
+	Changed the declaration of `print_buggy'.
+	Added a declaration for `xgetch' from the new file "xgetch.c".
+
+	* moonman.in: added a copyright notice
+
+	* pager.c: copyright fix
+	(pager_mode): Use `xgetch' instead of `wgetch'.
+
+	* persona.c: copyright fix
+
+	* queue.c: copyright fix
+	(clock_adjust_delay, get_event): bug fixes
+
+	* realname.c: Doc fix.
+	Copyright fix.
+
+	* text2c.sed: Add an initial comment and a copyright notice.
+
+	* title.c: Doc fixes.
+	(title_mode): use `xgetch'.
+
+	* title.eps: initital revision
+
+	* wgetnstr.c (wgetnstr): Bug fix.  Use `xgetch'.
+
+	* xgetch.c: initial revision
+
+1999-01-01  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* .cvsignore: Added the new files.
+
+	* maint.in.in: initital revision
+
+	* persona.c: suppport set-gid usage
+
+	* mbscore: this is now automatically created by moon-buggy
+
+	* TODO: updates
+
+	* Makefile.am:
+	Mention the new files "maintman.in", "instcmds", "merge.sed"
+	Renamed old "manpage.in" to "moonman.in".
+	Renamed old "mbpaths.c" to "hpath.c".
+	Renamed old "mbicon.gif" to "monn-buggy.gif".
+	Renamed old "mbicon.png" to "monn-buggy.png".
+	Create "maint-buggy" and "maint-man.6".
+	Add suid support to the installation targets.
+
+	* merge.sed: initial revision
+
+	* instcmds: initital revision
+
+	* configure.in: Added an "--with-suid" option.
+	Check for "awk".
+	Check for the header file <errno.h>.
+	Check for the functions `wgetnstr' and `setreuid'.
+	Create "maint.in".
+
+	* moon-buggy-0.2-1.spec: Changed the icon name.
+
+	* mbuggy.texi: Explain the command line options.
+	New chapter "Playing the game".
+
+	* maintman.in: initital revision
+
+	* manpage.in, moonman.in: moved manpage.in to moonman.in
+
+	* manpage.in: Minor fixes.
+	Added an "SEE ALSO" section.
+
+	* moon.h (MB_SPEED): new macro
+	Added declarations for the AC_REPLACE_FUNCS functions.
+
+	* basename.c: Include <config.h> and "moon.h".
+
+	* error.c: Include <config.h>.
+
+	* game.c: Avoid using '\e'.
+
+	* highscore.c: Define _XOPEN_SOURCE and _XOPEN_SOURCE_EXTENDED.
+	Conditionalize the inclusion of <errno.h>.
+
+	* main.c: Define _POSIX_SOURCE.
+	Fixed the "--version" and "--help" messages.
+	Prepare for systems without SIGWINCH.
+
+	* moon.c (print_ground, scroll_ground):
+	use `ground_width' instead of `COLS'.
+
+	* pager.c: Avoid using '\e'.
+	Fixed the usage message.
+
+	* queue.c: define _POSIX_SOURCE
+	Conditionalize the inclusion of <errno.h>
+
+	* realname.c: define _POSIX_SOURCE
+	avoid using dynamically sized arrays
+
+	* title.c: avoid using '\e'
+
+	* hpath.c, mbpaths.c: moved mbpaths.c to hpath.c
+
+	* wgetnstr.c: initial revision
+
+1998-12-31  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* persona.c: Handle systems without `setreuid'.
+
+1998-12-30  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* mvwaddnstr.c: initial revision
+
+	* Makefile.am: Do not use "-lm"
+	Add "text2c.sed" to the distribution
+	Do not use @CURSLIB@
+	Fixed the @LIBOBJS@ bug
+
+	* configure.in: Use `LIBS' instead of `CURSLIB'.
+	Check for the existence of `mvwaddnstr'.
+
+	* manpage.in: Explain the "--no-title" option
+	Explain the copyright.
+
+	* moon.h: Add the `message' window.
+	Handle curses versions which do not define the KEY_* macros.
+	Fixed the declarations.
+	doc fixes.
+
+	* buggy.c: Use the `TICK' macro.
+
+	* highscore.c: Renamed old `write_hiscore' into new `write_scores'.
+	(highscore_mode, resize_highscore): new functions
+
+	* game.c: initial revision
+
+	* moon.c (resize_ground): new function
+	Moved `print_ground' from "main.c" into "moon.c".
+
+	* main.c:
+	Moved `print_score', `print_lives', `limited', and `spend_live' from
+	"main.c" into "game.c".
+	Moved `print_ground' from "main.c" into "moon.c".
+	(allocate_windows): new function
+	Handle the `message' window
+	(block_winch, block_all, unblock): new functions
+	handle SIGWINCH
+	New command line option "--no-title"
+
+	* pager.c: display bug fixes
+
+	* queue.c (key_ready, wait_for_key): new functions
+	(clear_queue): eat up all keyboard events
+	(get_event): handle empty queues and `t_return == NULL'
+
+	* title.c: display bug fixes
+
+1998-12-29  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* pager.c (resize_pager): new function
+
+	* realname.c: Use the `message' window.
+
+	* title.c (resize_title): new function
+
+	* text2c.sed: Add an initial comment to the output file.
+
+	* xmalloc.c: Doc fix.
+	Fixed the error messages.
+	(xrealloc): handle NULL pointers specially
+
+	* Makefile.am:
+	Handle the new files "title.c", "pager.c", and "copying.h".
+
+	* xstrdup.c (xstrndup, xstrnlen): new functions.
+
+	* text2c.sed: initital revision
+
+	* title.c, pager.c: initial revision
+
+1998-12-28  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* Makefile.am: Use @CURSLIB@
+
+	* configure.in: Check for curses.
+
+	* main.c: Define and handle the `load_meter'.
+	(limited): new function
+
+	* moon.c: Use `char' instead of curses' `chtype'.
+
+	* queue.c: Adjust `sleep_meter'.
+
+	* moon.h: Changed the declarations for "lag.c"
+	Added a declaration for `sleep_meter'.
+	Use `char' instead of curses' `chtype'.
+	doc fix.
+
+	* lag.c: Choose better names:
+	    --- old --------        --- new --------
+	    struct lagmeter         struct circle_buffer
+	    new_lagmeter            new_circle_buffer
+	    add_lag                 add_value
+	    get_lag                 get_mean
+
+1998-12-27  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: 19998-12-27 hinzugefügt.
+
+	* .cvsignore: Added the temporary TeX files.
+
+	* moon-buggy-0.2-1.spec: initital revision
+
+	* TODO: Fixed
+
+	* Makefile.am:
+	Include the rpm spec file and the icon files into the distribution.
+	Add "person.c".
+
+	* moon-buggy.gif, moon-buggy.png: initital revision
+
+	* README: Minor fix.
+
+	* highscore.c: Properly handle the permissions from suid usage.
+
+	* main.c (main): voluntarily give up the rights from the suid bit.
+
+	* moon.h: Added declarations for the new file "persona.c".
+
+	* persona.c: initial revision
+
+1998-12-26  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* mbuggy.texi: White space fixes
+
+	* ChangeLog: Added entries from 1998-12-22 to 1998-12-26.
+
+	* TODO: Einige Punkte erledigt.
+	Dafür einen neuen hinzugefügt.
+
+	* README: Changed from fsstnd to fhs.
+
+	* main.c: Do not print the time.
+	Minor display fixes.
+
+	* moon.h:
+	Added a prototype for the new function `clock_adjust_delay' from
+	"queue.c".
+
+	* mbuggy.texi: Added a new chapter named "References".
+	Minor fixes.
+
+	* queue.c: Read all events from the queue relative to the new variable
+	`time_base'.
+	(clock_adjust_delay): new function
+
+	* realname.c (get_real_user_name):
+	turn the cursor on while doing `getstr'.
+
+1998-12-23  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* Makefile.am (uninstall-local): bug fix
+
+	* highscore.c: Use correct dates in the highscore list.
+	(get_current_date): new function
+
+	* configure.in: Check for the `getopt' stuff.
+	Added AC_TYPE_SIZE_T, AC_TYPE_UID_T and AC_TYPE_SIGNAL.
+	Check for `ftruncate'.
+
+	* .cvsignore: Added the new files "moon-buggy.6" and "texinfo.tex".
+
+	* Makefile.am:
+	Removed all references to the obsolete file "mbscore.tmpl".
+	Added the manual page.
+
+	* README: Improved the spelling.
+	Mention the `-V' option.
+
+	* TODO: Updated the task list.
+
+	* buggy.c (jump): bug fix.
+
+	* error.c: Removed the obsolete function `warning'.
+
+	* highscore.c: Doc fixes.
+	Fixed the error messages.
+	Old `find_table' replaced by completely new `find_tables'.
+	(compose_filename, do_open, do_lock): new functions
+	(generate_table): new function.
+
+	* main.c: Changed the definition of `score' and `bonus'.
+	Changed the layout of the `status' window.
+	(print_message): new function
+	Renamed old `main_loop' to new `spend_life'.
+	Renamed old `do_one_game' to new `play_game'.
+	(main_loop): new function
+	(main): do some signal handling.  Add option parsing.
+
+	* manpage.in:
+	Remove the explanation of the obsolete file "mbscore.tmpl".
+	Added explanation of ".mbscore".
+
+	* mbuggy.texi: Improved the spelling.
+	Mention the `-V' option.
+
+	* moon.c (d_rnd): changed to global scope
+
+	* moon.h:
+	Changed the type of the global variables `score' and `bonus' to `long'.
+	Added a prototype for `d_rnd'.
+	Removed the prototype for the obsolete function `warning'.
+
+1998-12-22  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* xmalloc.c: Fixed the error messages.
+
+	* xstrdup.c (xstrdup): Do not use `strdup'.
+
+	* mbscore, mbscore.tmpl: moved mbscore.tmpl to mbscore
+
+	* manpage.in: initial revision
+
+1998-12-20  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog: Mention the fix in "mbuggy.texi".
+
+	* mbuggy.texi: Bug fix.
+
+	* ChangeLog: Added the remaining news for version 0.2
+
+	* mbuggy.texi, README: Mention my email address for bug reports.
+
+	* main.c: Call `initialize_buggy'.
+
+	* moon.h: Added prototype for `initialize_buggy'.
+
+	* buggy.c (initialize_buggy): new function
+
+	* ChangeLog: added 1998-12-19 until 1998-12-20
+
+	* configure.in: Changed the version string to "0.2".
+
+	* .cvsignore: Added "mbuggy.info", "stamp-vti", and "version.texi".
+
+	* TODO: Added new tasks
+	Removed the scorefile entry
+
+	* README: Explain `--sharedstatedir'
+
+	* NEWS: New news
+
+	* Makefile.am: Added rules for the new files.
+	install/uninstall the score files.
+
+	* mbuggy.texi: Explain `--sharedstatedir'.
+
+	* moon.h: Updated the declarations.
+
+	* buggy.c: Handle the per-crater-bonus.
+
+	* error.c: Reflect the fact, that "moon-buggy" is always interactive.
+
+	* highscore.c: Use the search path from "mbpaths.c".
+
+	* main.c (do_one_game): new function
+	(prepare_for_exit): new function
+	great improvements
+
+	* queue.c (clear_queue): new function
+
+	* mbpaths.c: initial revision
+
+1998-12-19  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* mbscore.tmpl, mbuggy.texi, realname.c, highscore.c: initial revision
+
+1998-12-18  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* ChangeLog, README, TODO, NEWS: initial revision
+
+	* main.c: Jumps give one point.
+
+	* Makefile.am: Added the new files.
+
+	* main.c: Completed a rudimentary version of the game.
+
+	* moon.h: Added prototypes for the new files.
+
+	* lag.c, moon.c, queue.c, buggy.c: initial revision
+
+1998-12-17  Jochen Voss  <voss@tatonka.pfalz.de>
+
+	* .cvsignore, acconfig.h, AUTHORS, vclock.c, moon.h, main.c,
+	xstrdup.c, xmalloc.c, error.c, basename.c, configure.in,
+	Makefile.am: initial revision

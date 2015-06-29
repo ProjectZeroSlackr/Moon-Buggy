@@ -1,0 +1,53 @@
+This file is mostly written in German.  I think that this is
+acceptable for the moment, because (almost) all items should be
+resolved before version 1.0.
+
+BUG FIXES:
+· Einzeln hinzugekommene Zwerge haben falsches Datum
+· Auf der Hyperion geht das Fenstergrößenverändern nicht gut!
+· Fenstergrößenveränderungen beim Nameneingeben funktionieren mit
+ncurses-5 nicht gut.
+· Levels für Zwerge
+· Die Taste `j' sollte SPC immer und nicht nur meistens ersetzen
+können.
+· Auf nereid: Schüsse werden invers dargestellt, die Highscoreliste
+blinkend.  Auf io/jupiter ist alles noch schlimmer!
+· Auf hpux wird der Cursor nicht abgeschaltet.
+Man sollte ihn evtl. auf eine günstige Position stellen.
+· Speichere die Zeit in der Highscoreliste als GMT.  Wegen `mktime' in
+`parse_date' ist das schwierig.
+
+IMPROVEMENTS:
+· Loch in level 6.  Level 9 für Klaus.
+· `resize_ground' wird meist nicht zum "resizen" verwendet.
+Umbenennen?
+· Read the new revision of the FHS
+· Neue Funktion `warning', z.B. für die "Score file corrupted" Meldung
+· Compile-time option für Pausentaste
+· words of wisdom/advice
+· Den `fd_set' Teil von "configure.in" verbessern.  Zumindest
+sollte der cache verwendet werden.
+· `has_key' Ersatz für andere curses-Versionen einführen
+· Ist `addchstr' sinnvoll (wg. Geschwindigkeit)
+· Könnte man die Events einen Tick (oder 0.1 Sekunden) zu früh
+ausführen und nur das `doupdate' verzögern?  Wie ist das dann mit
+Tastendrücken während der letzen zehntel Sekunde?  Bringt das
+überhaupt eine signifikante Verbesserung?
+· Wäre eine asynchrone Behandlung von Tastendrücken sinnvoll?  (siehe
+"Interrupt Input" in der glibc-Anleitung)
+· Prüfsumme für das Scorefile.
+· Score file locking: recover from failure, i.e. use an alternative method.
+(What happens if two new score files are created at the same time?)
+· Use a timeout when waiting for a file lock
+· "make uninstall" braucht "install-info".  Ist das sinnvoll?
+· Portabilität bekümmern
+· Ufos einführen
+· Internationalisieren
+· Man sollte die Tastenbelegungen ändern können
+· Verwende COPYING.DOC
+
+; Local Variables:
+; mode: auto-fill
+; paragraph-start: "[ 	]*$\\|^\f\\|·\\|[A-Z]+:$"
+; paragraph-separate: "[ 	]*$\\|^\f"
+; End:

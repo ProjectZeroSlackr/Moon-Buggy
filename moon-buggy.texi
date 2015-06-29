@@ -1,0 +1,336 @@
+\input texinfo   @c -*-texinfo-*-
+@c $Id: moon-buggy.texi,v 1.13 2000/11/01 13:13:43 voss Exp $
+@c %**start of header
+@setfilename moon-buggy.info
+@settitle Moon-Buggy Usage and Maintenance
+@include version.texi
+@c %**end of header
+
+@dircategory Games
+@direntry
+* moon-buggy: (moon-buggy).     Drive some car across the moon
+@end direntry
+
+@ifinfo
+This file documents moon-buggy, a simple character graphics game
+
+Copyright 1999, 2000 Jochen Vo@ss{}
+
+Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+@ignore
+Permission is granted to process this file through TeX and print the
+results, provided the printed document carries a copying permission
+notice identical to this one except for the removal of this paragraph
+(this paragraph not being relevant to the printed manual).
+
+@end ignore
+Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+Permission is granted to copy and distribute translations of this
+manual into another language, under the above conditions for modified
+versions, except that this permission notice may be stated in a
+translation approved by the Free Software Foundation.
+@end ifinfo
+
+@setchapternewpage off
+@titlepage
+@title Moon-Buggy Usage and Maintenance
+@subtitle @value{UPDATED}
+@subtitle Edition @value{EDITION}
+@sp 8
+@center @image{title,,}
+@author by Jochen Vo@ss{}
+
+@page
+@vskip 0pt plus 1filll
+Copyright @copyright{} 1999, 2000 Jochen Vo@ss{}
+
+Published by Jochen Vo@ss{}
+
+Permission is granted to make and distribute verbatim copies of this
+manual provided the copyright notice and this permission notice are
+preserved on all copies.
+
+Permission is granted to copy and distribute modified versions of this
+manual under the conditions for verbatim copying, provided also that the
+entire resulting derived work is distributed under the terms of a
+permission notice identical to this one.
+
+Permission is granted to copy and distribute translations of this manual
+into another language, under the above conditions for modified versions,
+except that this permission notice may be stated in a translation
+approved by the Free Software Foundation.
+@end titlepage
+@headings double
+
+@node Top, Introduction, (dir), (dir)
+
+@ifinfo
+Moon-buggy is a simple character graphics game, where you drive some
+kind of car across the moon's surface.  Unfortunately there are
+dangerous craters there.  Fortunately your car can jump over them!
+
+This edition (last updated @value{UPDATED}) of the manual applies to
+version @value{VERSION} of the program.
+@end ifinfo
+
+@menu
+* Introduction::                Introduction
+* Moon-buggy Invocation::       Moon-buggy Invocation
+* Playing the Game::            Keyboard commands
+* Shared Score Files::          Competition via the highscore table
+* Installation::                Installation and setup
+* References::                  References
+@end menu
+
+
+@node Introduction, Moon-buggy Invocation, Top, Top
+@chapter Introduction
+
+Moon-buggy is a simple character graphics game, where you drive some
+kind of car across the moon's surface.  Unfortunately there are
+dangerous craters there.  Fortunately your car can jump over them!
+
+Moon-Buggy comes with no warranty, to the extent permitted by law.  You
+may redistribute copies of Moon-Buggy under the terms of the GNU General
+Public License.  For more information about these matters, read the file
+@file{COPYING} of the source code distribution or press @key{c} at
+moon-buggy's title screen.
+
+Please mail any suggestions and bug reports to
+@email{voss@@mathematik.uni-kl.de}.  Your message should include the
+moon-buggy version number, as obtained by the command @samp{moon-buggy -V}.
+
+New versions of Moon-buggy may be found on the sunsite ftp server or on
+the moon-buggy download page (@pxref{References}).
+
+
+@node  Moon-buggy Invocation, Playing the Game, Introduction, Top
+@chapter Moon-buggy Invocation
+
+Normal usage is to start @samp{moon-buggy} without any options.
+Nevertheless there are some.  The long options (starting with @samp{--})
+are only supported on some system types.
+
+@table @samp
+@item -h
+@itemx --help
+shows a short usage message.
+
+@item -m
+@itemx --mesg
+disable write access to your terminal by other users,
+so your chef can't disturb your game play with the help
+of "write" or "finger".
+
+@item -n
+@itemx --no-title
+skips the title screen.
+
+@item -s
+@itemx --show-scores
+shows the current highscore list and exits.
+
+@item -V
+@itemx --version
+prints the program's version to standard output and exits.
+@end table
+
+
+@node Playing the Game, Shared Score Files, Moon-buggy Invocation, Top
+@chapter Playing the Game
+
+The game is controlled by a couple of keys, which are described near the
+bottom of the screen.  Most important are the following keys.
+
+@table @key
+@item SPC
+@itemx j
+makes your car jump.  The length of a jump is fixed and you can only
+start a new jump while the wheels have contact to the ground.
+@item a
+@itemx l
+fires the mining laser.  The laser is used to remove stones, which may
+block your way.
+@item q
+quits the game prematurely.  But you still keep your score and may enter
+the highscore list.
+@end table
+
+Moon-buggy can handle a wide range of screen sizes.  But it runs best
+if the screen has at least 80 columns.  If you run it on a screen with
+significantly less columns it may look strange and could be hard to
+play.
+
+
+@node Shared Score Files, Installation, Playing the Game, Top
+@chapter Shared Score Files
+
+Moon-buggy has two concepts of score files: the @dfn{global score file}
+is located somewhere in the installation directories and is shared
+between all players.  The exact place in the file system can be
+controlled via @code{configure}'s @samp{--sharedstatedir} option.  This
+highscore file is used whenever Moon-buggy has the permissions to access it.
+Otherwise the @dfn{local score file} is used.  This file is located in
+the user's home directory, the file name is @file{.mbscore}.  Thus, the
+local score file is not shared between different accounts.
+
+As the game is much more fun, when players can compete for the highest
+scores, the global score file should be writable for the moon-buggy
+program (but not for the user's text editor).  Here is a list of
+possible policies:
+
+@enumerate
+@item
+The preferred solution is to make moon-buggy a setgid program.  This
+means the following: you choose a group ID, which cannot be used by
+ordinary users, and allow only members of this group to write the score
+file.  Many systems have a group @samp{games} for this purpose (Check
+your @file{/etc/group} file).  You make this group own the
+@file{moon-buggy} executable and set the file's setgid bit.  This bit
+gives moon-buggy its file groups's access permissions and so the program
+is able to access the score file.
+
+You can use @code{configure}'s @samp{--with-setgid} option
+(@pxref{Installation}) to properly set up access permissions for this model.
+
+@item
+You could make moon-buggy a setuid program but for security reasons this
+is not recommended.  The file @file{SECURITY} from the bsd-games
+distribution (@pxref{References}) has some informations about this
+topic.
+
+@item
+Another solution is to make the score file world writable.  But then you
+have to trust your players: every player may open the score file with
+his favourite text editor and change it freely.  So this is not
+recommended, too.
+
+@item
+Finally you could do nothing.  Then every account uses its local score
+file.
+@end enumerate
+
+
+@node Installation, References, Shared Score Files, Top
+@chapter Installation
+
+Moon-buggy requires the curses library as a prerequisite.  If curses is
+not installed on your system, you may use the free ncurses package
+(@pxref{References}).  The game does not work with BSD curses, thus on
+BSD systems you will need the ncurses package.
+
+When you unpack the moon-buggy distribution, you get one directory,
+which holds all the source files and the documentation.  Generic
+installation instructions are in the file @file{INSTALL}.  There are
+some points of interest:
+
+@itemize @bullet
+@item
+By default, the program will be installed as
+@file{/usr/local/bin/moon-buggy}.  You can specify an installation
+prefix other than @file{/usr/local} by giving @samp{configure} the
+@samp{--prefix=@var{path}} option.
+
+@item
+You can choose the score file's location via @code{configure}'s
+@samp{--sharedstatedir=@var{dir}} option.  The score file then will be
+@file{@var{dir}/moonbuggy/mbscore}.  On GNU/Linux systems you should use
+
+@example
+--sharedstatedir=/var/games
+@end example
+
+@noindent
+to comply with the Filesystem Hierarchy Standard (@pxref{References}).
+
+@item
+Moon-buggy supports shared score files.  For details, see @ref{Shared
+Score Files}.  As explained there, you may want to make moon-buggy a
+setgid program.  This can be done with the @samp{--with-setgid} option.
+If you use
+
+@example
+--with-setgid=games
+@end example
+
+@noindent
+then the installation process arranges everything for setgid usage.
+
+@strong{Caution}: this introduces potential security risks.  I tried to
+minimise these, but nevertheless be careful with this.  And remember:
+moon-buggy comes with no warranty.
+
+@item
+If your version of the curses library is not autodetected, you have to
+use some of the @samp{--with-curses-includedir},
+@samp{--with-curses-header}, and @samp{--with-curses-libs} options.  For
+example you should use
+
+@example
+--with-curses-includedir=/usr/pkg/include
+@end example
+
+@noindent
+if your curses header files are in @file{/usr/pkg/include/}.
+You may use
+
+@example
+--with-curses-header="<mycurses.h>"
+@end example
+
+@noindent
+if your curses header is called @file{mycurses.h}.  And you may use
+
+@example
+--with-curses-libs="-L/usr/pkg/lib -lncurses"
+@end example
+
+@noindent
+if your curses library is called @file{ncurses.a} and is located in
+@file{/usr/pkg/lib/}.
+@end itemize
+
+
+Example: On GNU/Linux systems you probably can use the following
+commands.  For the last one you need root user permissions.
+
+@example
+./configure --sharedstatedir=/var/games --with-setgid=games
+make
+make install
+@end example
+
+
+@node References,  , Installation, Top
+@chapter References
+
+This chapter gives some references to resources mentioned in the manual.
+As the internet changes incessantly, the addresses below may be
+outdated.  If you find this to happen, please report it as a bug.
+
+The latest version of @strong{Moon-buggy} may be found on the sunsite
+archive in the directory
+@url{ftp://sunsite.unc.edu/pub/linux/games/arcade/}.
+
+I provide a @strong{moon-buggy download page}, which is located at
+@url{http://www.mathematik.uni-kl.de/~wwwstoch/voss/moon-buggy.html}.
+
+Version 2.0 of the @strong{Filesystem Hierarchy Standard} (FHS 2.0) may
+be found on the internet at
+@url{ftp://sunsite.unc.edu/pub/linux/docs/fhs/fhs-2.0.tar.gz}.
+
+The @strong{ncurses} package can be found on the GNU project's ftp
+server and its mirrors.  The original site is
+@url{ftp://prep.ai.mit.edu/pub/gnu/ncurses/ncurses-4.2.tar.gz}.
+
+Hints about @strong{security concerns} may be found in the file
+@file{SECURITY} from the bsd-games package.  One location where to find
+it is @url{ftp://sunsite.unc.edu/pub/linux/games/bsd-games-2.7.tar.gz}.
+@bye

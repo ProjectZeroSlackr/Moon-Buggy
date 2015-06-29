@@ -1,0 +1,14 @@
+#! /bin/sh -e
+
+if [ "$1" = purge ]
+then
+  if [ -d /var/games/moon-buggy ]
+  then
+    if [ -e /var/games/moon-buggy/mbscore ]
+    then
+      rm /var/games/moon-buggy/mbscore
+    fi
+  fi
+fi
+
+#DEBHELPER#
